@@ -1,0 +1,27 @@
+# This is a basic workflow to help you get started with Actions
+#---------------------------------------------------
+# GitHub Action Test Part-1
+#
+# Copyleft (c) by me 2022
+#---------------------------------------------------
+name: My-GitHub-Action-Basics
+
+on:
+  push:
+    branches:
+      - master  
+
+jobs:
+  my_testing:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Print Hello Message
+      run: echo "Hello World from testing job"
+      
+  my_deploy:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Print Hello Message
+      run: echo "Hello World from deploy job"
