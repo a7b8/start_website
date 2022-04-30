@@ -5,6 +5,9 @@
 # Copyleft (c) by me 2022
 #---------------------------------------------------
 name: My-GitHub-Action-Basics
+env:
+  APPLICATION_NAME: "MyTest"
+  Deploy_PACKAGE_NAME: "test-deploy-ver-{{github.sha }}"
 
 on:
   push:
@@ -18,6 +21,11 @@ jobs:
     steps:
     - name: Print Hello Message
       run: echo "Hello World from testing job"
+    - name: Execute for commands
+      run: |
+        echo "Hello Message1"
+        echo "Hello Message2"
+        echo "Application name: ${{ env.APPLICATION_NAME }}"
       
   my_deploy:
     runs-on: ubuntu-latest
@@ -26,3 +34,6 @@ jobs:
     steps:
     - name: Print Hello Message
       run: echo "Hello World from deploy job"
+      
+    - name: Printing Deployment packege
+      run: echo "Deploy package name is ${{ env.Deploy_PACKAGE_NAME }}"
